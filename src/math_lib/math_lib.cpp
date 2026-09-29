@@ -42,5 +42,27 @@ namespace MathLib
 		if (b == 0) return a;
 		return GCD(b, a % b);
 	}
+
+
+    unsigned long long fibonacci(int n)
+    {
+        if (n < 0)
+            throw std::invalid_argument("Fibonacci number is not defined for negative index");
+        if (n > 93)
+            throw std::overflow_error("Fibonacci result does not fit into unsigned long long");
+
+        if (n == 0)
+            return 0;
+
+        unsigned long long prev = 0;
+        unsigned long long curr = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            unsigned long long next = prev + curr;
+            prev = curr;
+            curr = next;
+        }
+        return curr;
+    }
 }
 

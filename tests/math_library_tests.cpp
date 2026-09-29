@@ -77,3 +77,21 @@ TEST_F(MathLibTestFixture, GreatestCommonDivider)
 {
     EXPECT_EQ(MathLib::GCD(10, 6), 2);
 }
+
+TEST_F(MathLibTestFixture, FibonacciTest)
+{
+    EXPECT_EQ(MathLib::fibonacci(0), 0ULL);
+    EXPECT_EQ(MathLib::fibonacci(1), 1ULL);
+    EXPECT_EQ(MathLib::fibonacci(2), 1ULL);
+    EXPECT_EQ(MathLib::fibonacci(10), 55ULL);
+    EXPECT_EQ(MathLib::fibonacci(20), 6765ULL);
+    EXPECT_EQ(MathLib::fibonacci(50), 12586269025ULL);
+    EXPECT_EQ(MathLib::fibonacci(93), 12200160415121876738ULL);
+    EXPECT_NE(MathLib::fibonacci(10), 56ULL);
+}
+
+TEST_F(MathLibTestFixture, FibonacciInvalidArguments)
+{
+    EXPECT_THROW(MathLib::fibonacci(-1), std::invalid_argument);
+    EXPECT_THROW(MathLib::fibonacci(94), std::overflow_error);
+}

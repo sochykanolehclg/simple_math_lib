@@ -69,4 +69,8 @@ namespace MathLib
 
     // Function to search GCD
     int GCD(int a, int b);
+
+    // Function to calculate n-th Fibonacci number (F(0) = 0, F(1) = 1)
+    // Throws std::invalid_argument for negative n and std::overflow_error for n > 93
+    unsigned long long fibonacci(int n);
 }
