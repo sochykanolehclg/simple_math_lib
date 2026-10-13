@@ -6,7 +6,7 @@ namespace MathLib
 {
     bool isEqual(double a, double b, double tolerance)
     {
-        return abs(a - b) <= tolerance;
+        return std::abs(a - b) <= tolerance;
     }
 
     bool isPrime(int n)
@@ -42,5 +42,13 @@ namespace MathLib
 		if (b == 0) return a;
 		return GCD(b, a % b);
 	}
-}
 
+    double thirdAngle(double a, double b)
+    {
+        if (a <= 0 || b <= 0)
+            throw std::invalid_argument("Angles must be positive");
+        if (a + b >= 180)
+            throw std::invalid_argument("Sum of two angles must be less than 180 degrees");
+        return 180.0 - a - b;
+    }
+}
