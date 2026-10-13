@@ -42,5 +42,24 @@ namespace MathLib
 		if (b == 0) return a;
 		return GCD(b, a % b);
 	}
-}
 
+    long long fibonacci(int n)
+    {
+        if (n < 0)
+            throw std::invalid_argument("Fibonacci is not defined for negative numbers");
+        if (n > 92)
+            throw std::overflow_error("Fibonacci number does not fit into long long");
+
+        if (n == 0)
+            return 0;
+        long long prev = 0;
+        long long curr = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            long long next = prev + curr;
+            prev = curr;
+            curr = next;
+        }
+        return curr;
+    }
+}
